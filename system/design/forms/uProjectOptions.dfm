@@ -173,7 +173,8 @@ object fmProjectOptions: TfmProjectOptions
 		object mod_desc: TRichEdit
 		Align = alClient
 		ReadOnly = True
-		ScrollBars = ssBoth
+		WordWrap = True
+		ScrollBars = ssVertical
 		end
       end
     end

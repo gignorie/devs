@@ -115,7 +115,7 @@ class myModules {
              
 
             // копируем сам модуль, если не скопирован
-            //if (!file_exists(dirname($file).'/ext/'.$mod)){
+            if (!file_exists(dirname($file).'/ext/'.$mod)){
                 if (!$attach_dll){
 				
                     $md5_1 = $md5_2 = false;
@@ -133,7 +133,7 @@ class myModules {
                         x_copy($dir.'ext/'.$mod, dirname($file).$exten_dir.$mod);
                     }
                 }
-            //}
+            }
             
             // копируем зависимые dll-ки модуля...
             foreach ((array)$GLOBALS['MODULES_INFO'][$mod] as $dll){
@@ -141,7 +141,7 @@ class myModules {
                     if (is_file($dir . $dll))
                     if (!file_exists(dirname($file).'/'.$dll))
 					{
-                        copy($dir . $dll, dirname($file).'/'.$dll);
+                        x_copy($dir . $dll, dirname($file).'/'.$dll);
 						$result[] = dirname($file).'/'.$dll;
 					}
             }

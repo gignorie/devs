@@ -152,7 +152,7 @@ class myCompile
 		if( !empty((array)$myProject->config['modules']) )
 		{
 			foreach ($myProject->config['modules'] as $mod) {
-				if (file_exists(dirname(EXE_NAME) . $exten_dir . $mod))
+				if(file_exists(dirname(EXE_NAME) . $exten_dir . $mod))
 				{
 					if(!empty($already) && in_array($mod, $already)) continue;
 					if(isset($GLOBALS['MODULES_INFO'][$mod]) && ($a = self::checkisext($GLOBALS['MODULES_INFO'][$mod])) && $a)
@@ -421,7 +421,8 @@ class myCompile
 		exemod_finish();
 		exemod_start($exeFile);
 		self::generateIncFile();
-		myModules::inc(false,true,true);
+		//myModules::clear();
+		myModules::inc(false,false,true);
 		self::attachPHPEngine(false, false);
 		self::attachPHPSoulEngine(false);
 		self::attachForms(false);
